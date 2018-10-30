@@ -1,5 +1,5 @@
 package com.codecool;
 
 public interface TimeStep {
-    void move();
+    void timeStep();
 }
