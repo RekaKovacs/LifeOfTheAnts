@@ -1,8 +1,12 @@
 package com.codecool;
 
+import java.util.Random;
+
 public class Queen extends Ant {
     protected static Integer counter = 1;
-    protected boolean isMoodMating = false;
+    Random rnd = new Random();
+    protected boolean isMoodMating = iniMoodMating();
+    protected Integer counterMoodMating = iniCounterMoodMating();
 
     public Queen() {
         this.positionX = 0;
@@ -15,7 +19,21 @@ public class Queen extends Ant {
 
     @Override
     public void doTask() {
+        if (counterMoodMating == 0) {
+            isMoodMating = true;
+            counterMoodMating = rnd.nextInt(101) + 100;
+        } else {
+            counterMoodMating--;
+            isMoodMating = false;
+        }
+    }
 
+    public boolean iniMoodMating() {
+        return rnd.nextBoolean();
+    }
+
+    public Integer iniCounterMoodMating() {
+        return rnd.nextInt(101) + 100;
     }
 
 }
