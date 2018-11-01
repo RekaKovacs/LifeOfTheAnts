@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class Drone extends Ant {
     protected static Integer counter = 1;
-    protected Queen queen;
     protected int hallelujahTime = 0;
     private Random rnd = new Random();
 
@@ -17,7 +16,7 @@ public class Drone extends Ant {
     }
 
     @Override
-    public void move() {
+    public void moveAndMate(boolean isMoodMating) {
         if (this.positionX + this.positionY > 3) {
             if (this.positionX > 0) {
                 this.positionX--;
@@ -29,18 +28,22 @@ public class Drone extends Ant {
             } else {
                 this.positionY++;
             }
+            System.out.println("My name: " + this.name + " My position: " + this.positionX + ", " + this.positionY
+                    + " My distance: " + (this.positionX + this.positionY));
         } else {
-            matingMaybe();
+            matingMaybe(isMoodMating);
         }
     }
 
-    public void matingMaybe() {
+
+    public void matingMaybe(boolean isMoodMating) {
         System.out.println("Hello, my name is " + this.name + " do you want to mate?");
-        if (queen.isMoodMating && hallelujahTime <= 10) {
+        if (isMoodMating && hallelujahTime <= 10) {
             System.out.println(" HALLELUJAH " + hallelujahTime);
             hallelujahTime++;
-        } else if (hallelujahTime > 10) {
-            newPosition();
+            if (hallelujahTime > 10) {
+                newPosition();
+            }
         } else {
             System.out.println(" D’OH ");
             newPosition();
@@ -48,11 +51,8 @@ public class Drone extends Ant {
     }
 
     public void newPosition() {
-        this.positionX = rnd.nextInt(98) + 3;
-        this.positionY = rnd.nextInt(100 - positionX);
+        this.positionX = rnd.nextInt(97) + 3;
+        this.positionY = 100 - positionX;
         System.out.println("So far from Queen: " + positionX + ", " + positionY);
     }
-
-// “HALLELUJAH”, stay there for 10 timesteps, and after that they are kicked off to a random point with the distance
-//        of 100 steps. If they do not have luck, they say “D’OH”, and are kicked 100 steps away instantly.
 }

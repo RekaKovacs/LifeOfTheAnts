@@ -8,8 +8,8 @@ public class Main {
         Colony colony = new Colony();
         colony.layOutAnts();
 
-        int step = 10;
-        for (int i = 0; i < step; i++) {
+        int step = 101;
+        for (int i = 1; i < step; i++) {
             System.out.println("number of steps " + i);
             colony.doTaskAllAnts();
         }

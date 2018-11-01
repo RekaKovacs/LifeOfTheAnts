@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Queen extends Ant {
     protected static Integer counter = 1;
-    Random rnd = new Random();
+    protected Random rnd = new Random();
     protected boolean isMoodMating = iniMoodMating();
     protected Integer counterMoodMating = iniCounterMoodMating();
 
@@ -35,5 +35,4 @@ public class Queen extends Ant {
     public Integer iniCounterMoodMating() {
         return rnd.nextInt(101) + 100;
     }
-
 }

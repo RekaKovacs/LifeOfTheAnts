@@ -24,6 +24,8 @@ public class Colony {
     public void layOutAnts() {
         for (int i = 0; i < numberOfAnts; i++) {
             listOfDrones.add(new Drone());
+            listOfDrones.add(new Drone());
+            listOfDrones.add(new Drone());
             listOfSoldiers.add(new Soldier());
             listOfWorkers.add(new Worker());
         }
@@ -33,12 +35,16 @@ public class Colony {
     public void doTaskAllAnts() {
         createListContainAllAnts();
         for (Ant ant : listAllAnts) {
-            ant.doTask();
+            if (ant instanceof Drone) {
+                ant.moveAndMate(queen.isMoodMating);
+            } else {
+                ant.doTask();
+            }
         }
     }
 
-    public  void createListContainAllAnts() {
-        listAllAnts = new ArrayList<Ant>();
+    public void createListContainAllAnts() {
+        listAllAnts = new ArrayList<>();
         listAllAnts.addAll(listOfWorkers);
         listAllAnts.addAll(listOfSoldiers);
         listAllAnts.addAll(listOfDrones);

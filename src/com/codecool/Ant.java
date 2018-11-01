@@ -34,6 +34,9 @@ public class Ant {
     public void move(){
     }
 
+    public void moveAndMate(boolean isMootMating) {
+    }
+
     public void doTask() {
         this.move();
         System.out.println("My name: " + this.name + " My position: " + this.positionX + ", " + this.positionY
