@@ -11,8 +11,9 @@ public class Drone extends Ant {
         System.out.println("my position is: " + positionX + ", " + positionY);
     }
 
+    @Override
     public void move() {
-        if (this.distance > 3) {
+        if (this.positionX + this.positionY > 3) {
             if (this.positionX > 0) {
                 this.positionX--;
             } else {

@@ -2,6 +2,7 @@ package com.codecool;
 
 public class Queen extends Ant {
     protected static Integer counter = 1;
+    protected boolean isMoodMating = false;
 
     public Queen() {
         this.positionX = 0;
@@ -10,6 +11,11 @@ public class Queen extends Ant {
         counter++;
         System.out.println("here is " + this.name);
         System.out.println("my position is: " + positionX + ", " + positionY);
+    }
+
+    @Override
+    public void doTask() {
+
     }
 
 }

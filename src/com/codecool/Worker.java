@@ -13,6 +13,7 @@ public class Worker extends Ant {
         System.out.println("my position is: " + positionX + ", " + positionY);
     }
 
+    @Override
     public void move() {
         Random rnd = new Random();
         int direction = rnd.nextInt(3) + 1;

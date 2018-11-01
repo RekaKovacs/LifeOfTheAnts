@@ -5,15 +5,8 @@ import java.util.Random;
 public class Ant {
     protected Integer positionX;
     protected Integer positionY;
-    protected Integer distance;
     protected String name;
 
-
-
-
-    public Integer getDistance() {
-        return Math.abs(positionX) + Math.abs(positionY);
-    }
 
     public void step(int direction) {
         switch (direction) {
@@ -38,4 +31,12 @@ public class Ant {
         positionY = rnd.nextInt(100) + 1;
     }
 
+    public void move(){
+    }
+
+    public void doTask() {
+        this.move();
+        System.out.println("My name: " + this.name + " My position: " + this.positionX + ", " + this.positionY
+                + " My distance: " + (this.positionX + this.positionY));
+    }
 }

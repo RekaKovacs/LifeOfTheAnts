@@ -7,5 +7,11 @@ public class Main {
         System.out.println("Welcome to the World of Ants!");
         Colony colony = new Colony();
         colony.layOutAnts();
+
+        int step = 10;
+        for (int i = 0; i < step; i++) {
+            System.out.println("number of steps " + i);
+            colony.doTaskAllAnts();
+        }
     }
 }

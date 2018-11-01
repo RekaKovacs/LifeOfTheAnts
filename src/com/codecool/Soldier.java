@@ -12,6 +12,7 @@ public class Soldier extends Ant {
         System.out.println("my position is: " + positionX + ", " + positionY);
     }
 
+    @Override
     public void move() {
         if (direction == 4) {
             this.step(direction);
